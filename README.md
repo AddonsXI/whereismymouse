@@ -28,3 +28,5 @@ screens and during cutscenes.
 ## Credits
 
 Based on the Crosshair addon by atom0s.
+
+More addons @ https://github.com/AddonsXI
