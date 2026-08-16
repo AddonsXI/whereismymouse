@@ -12,19 +12,18 @@ Drop the folder into `Game/addons/` and type `/addon load whereismymouse`.
 
 ## Settings
 
-A size, an opacity and a color for the dot, and the same three for the border around it. Set the
-dot's opacity to 0 for a hollow ring, with the dot size deciding how big the ring is.
+A size, an opacity and a color for the dot, and the same three for the border around it. Set the dot's opacity to 0 for a hollow ring, with the dot size deciding how big the ring is.
 
-Auto-hide fades it out after a set period without mouse movement, and it comes straight back when
-you move.
+Auto-hide fades it out after a set period without mouse movement, and it comes straight back when you move.
 
 ![whereismymouse Config](config.png)
 
 ## Notes
 
-Settings are saved per character. It hides itself when you hide the game interface, during loading
-screens and during cutscenes.
+Settings are saved per character. It hides itself when you hide the game interface, during loading screens and during cutscenes.
 
 ## Credits
 
 Based on the Crosshair addon by atom0s.
+
+More addons @ https://github.com/AddonsXI
