@@ -1,4 +1,4 @@
-# whereismymouse
+# whereismymouse v1.0.1
 
 Shows a dot on your screen that follows your mouse cursor, so you stop losing track of it.
 
@@ -28,5 +28,3 @@ screens and during cutscenes.
 ## Credits
 
 Based on the Crosshair addon by atom0s.
-
-More addons @ https://github.com/AddonsXI

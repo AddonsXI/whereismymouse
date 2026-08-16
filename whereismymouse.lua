@@ -21,7 +21,7 @@
 
 addon.name      = 'whereismymouse';
 addon.author    = 'AddonsXI';
-addon.version   = '1.0.0';
+addon.version   = '1.0.1';
 addon.link      = 'https://github.com/AddonsXI';
 addon.desc      = 'Shows a dot on the screen where the mouse is.';
 
@@ -79,7 +79,10 @@ local whereismymouse = T{
         x = 0,
         y = 0,
     },
-    lastMouseMoveTime = os.clock(),  -- Track last mouse movement time
+    -- Wall clock milliseconds. os.clock is process CPU time in LuaJIT, so an idle
+    -- timer built on it stretches exactly when the game is quiet, which is precisely
+    -- when the mouse is not moving..
+    lastMouseMoveTime = ashita.time.get_tick(),
 };
 
 --[[
@@ -288,10 +291,8 @@ ashita.events.register('d3d_present', 'present_cb', function ()
     -- Check auto-hide feature
     local shouldHide = false;
     if whereismymouse.settings.autoHide.enabled[1] then
-        local currentTime = os.clock();
-        local timeSinceLastMove = currentTime - whereismymouse.lastMouseMoveTime;
-        local timeoutSeconds = whereismymouse.settings.autoHide.timeout[1];
-        if timeSinceLastMove >= timeoutSeconds then
+        local idleMs = ashita.time.get_tick() - whereismymouse.lastMouseMoveTime;
+        if idleMs >= (whereismymouse.settings.autoHide.timeout[1] * 1000) then
             shouldHide = true;
         end
     end
@@ -333,5 +334,5 @@ ashita.events.register('mouse', 'mouse_cb', function (e)
 
     whereismymouse.mouse_pos.x = e.x;
     whereismymouse.mouse_pos.y = e.y;
-    whereismymouse.lastMouseMoveTime = os.clock();  -- Update last movement time
+    whereismymouse.lastMouseMoveTime = ashita.time.get_tick();
 end);
